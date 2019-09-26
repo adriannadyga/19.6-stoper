@@ -19,6 +19,9 @@ class Stopwatch {
     //ustawia tekst elementu DOM, który jest pod atrybutem display
     print() { 
         this.display.innerText = this.format(this.times); //metoda format przygotowuje tekst do wyświetlenia
+        this.save = {
+            time: this.display.innerText
+        }
     }
     /*metoda zwraca szablon wykorzystujący obiekt (times) podany do metody; 
     konstrukcja ${nazwa_zamiennej} umożliwia przekazanie wyniku kolejnej funkcji (pad0) jako jeden z elementów szablonu
@@ -56,9 +59,28 @@ class Stopwatch {
         this.running = false;
         clearInterval(this.watch);
     }
+
+    resetWatch() {
+        this.running = false;
+        this.reset();
+        this.print();
+    }
+
+    saveTime() {
+        let timeItem = this.save.time;
+        let node = document.createElement('li');
+        let textnode = document.createTextNode(timeItem);
+        node.appendChild(textnode);
+        document.querySelector('.results').appendChild(node);
+    }
+
+    removeTime() {
+        let times = document.querySelector('.results');
+        times.removeChild(times.lastChild);
+    }
 };
 
- //funkcja pad) dodaje zero do liczb jednocyfrowych
+ //funkcja pad0 dodaje zero do liczb jednocyfrowych
  function pad0(value) {
     let result = value.toString();
     if (result.length < 2) {
@@ -75,3 +97,12 @@ startButton.addEventListener('click', () => stopwatch.start());
 
 let stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
+
+let resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', () => stopwatch.resetWatch());
+
+let saveButton = document.getElementById('save');
+saveButton.addEventListener('click', () => stopwatch.saveTime());
+
+let removeButton = document.getElementById('delete');
+removeButton.addEventListener('click', () => stopwatch.removeTime());
