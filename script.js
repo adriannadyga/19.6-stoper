@@ -44,14 +44,15 @@ class Stopwatch {
     }
 
     calculate() {
-        this.times.miliseconds += 1;
-        if (this.times.miliseconds >= 100) {
-            this.times.seconds += 1;
-            this.times.miliseconds = 0;
+        let {miliseconds, seconds, minutes} = this.times;
+        miliseconds += 1;
+        if (miliseconds >= 100) {
+            seconds += 1;
+            miliseconds = 0;
         }
-        if (this.times.seconds >= 60) {
-            this.times.minutes += 1;
-            this.times.seconds = 0;
+        if (seconds >= 60) {
+            minutes += 1;
+            seconds = 0;
         }
     }
 
