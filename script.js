@@ -66,6 +66,12 @@ class Stopwatch {
             minutes += 1;
             seconds = 0;
         }
+        this.times = {
+            miliseconds,
+            seconds,
+            minutes
+        }
+        //console.log(this.times);
     }
     
     stop() {

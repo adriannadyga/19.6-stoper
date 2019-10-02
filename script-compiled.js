@@ -98,6 +98,12 @@ var Stopwatch = function () {
                 minutes += 1;
                 seconds = 0;
             }
+            this.times = {
+                miliseconds: miliseconds,
+                seconds: seconds,
+                minutes: minutes
+                //console.log(this.times);
+            };
         }
     }, {
         key: 'stop',
