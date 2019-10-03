@@ -1,0 +1,32 @@
+body {
+    margin: 150px;
+}
+.controls {
+    display: flex;
+    justify-content: space-evenly;
+}
+.controls a {
+    text-decoration: none;
+    font-size: 30px;
+    border: 1px solid #000000;
+    padding: 10px;
+    background-color: #add8e6;
+    color: #000000;
+}
+
+.stopwatch {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 50px;
+    color: #ff0000;
+}
+
+ul {
+    font-size: 30px;
+    list-style-type: none;
+}
+
+ul li {
+    padding: 5px;
+}
